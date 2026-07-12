@@ -6,6 +6,11 @@ body {
         padding: 0;
         font-family: "Barlow Semi Condensed", sans-serif;  /*Weights 500, 600*/
         font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
 }
 
 :root {
@@ -18,9 +23,7 @@ body {
         --grey400: hsl(224, 10%, 45%);
         --grey500: hsl(217, 19%, 35%);
         --darkblue: hsl(219, 29%, 14%);
-        --black: hsl(0, 0%, 7%);
 
-        --barlow500: 500;
         --barlow600: 600;
 }
 
@@ -46,24 +49,83 @@ body {
 
 .testimonial-light {
         font-size: .8125rem;
+        margin: 0;
 }
 
+.daniel-clifford-card .testimonial-name, 
+.daniel-clifford-card .testimonial-bold {
+        color: var(--white);
+}
+
+.daniel-clifford-card .verified-graduate, 
+.daniel-clifford-card .testimonial-light {
+        color: var(--purple50);
+}
+
+.jonathan-walters-card .testimonial-name, 
+.jonathan-walters-card .testimonial-bold {
+        color: var(--white);
+}
+
+.jonathan-walters-card .verified-graduate {
+        color: var(--grey300);
+} 
+
+.jonathan-walters-card .testimonial-light {
+        color: var(--grey100);
+}
+
+.jeanette-harmon-card .testimonial-name, 
+.jeanette-harmon-card .testimonial-bold, 
+.kira-whittle-card .testimonial-name, 
+.kira-whittle-card .testimonial-bold{
+        color: var(--grey500);
+}
+
+.jeanette-harmon-card .verified-graduate, 
+.jeanette-harmon-card .testimonial-light,
+.kira-whittle-card .verified-graduate, 
+.kira-whittle-card .testimonial-light {
+        color: var(--grey400);
+}
+
+.patrick-abrams-card .testimonial-name, 
+.patrick-abrams-card .verified-graduate {
+        color: var(--white);
+}
+
+.patrick-abrams-card .testimonial-bold  {
+        color:  var(--grey300);
+}
+
+.patrick-abrams-card .testimonial-light {
+        color:  var(--grey300);
+}
 
 
 /*    ================
                 LAYOUT
         ================ */
-main {
+
+.main-content {
         display: grid;
+        gap: 1.5em;
+        margin: 3em;
 }
 
 .testimonial-card {
         border-radius: 8px;
         padding: 2em;
+        margin: 0;
+        display: grid;
+        align-content: start;
 }
 
 .blockquote-footer {
-        display: flex;
+        display: grid;
+        grid-template-columns: 3em 6em;
+        grid-template-rows: auto auto;
+        align-content: start;
 }
 
 .daniel-clifford-card {
@@ -87,8 +149,60 @@ main {
 .testimonial-img {
         border-radius: 50%;
         width: 2em;
+        grid-row: span 2;
+}
+
+.testimonial-img-daniel,
+.testimonial-img-patrick {
+        border: 2px solid var(--purple300);
 }
 
 /*    ================
                 MEDIA QUERY
         ================ */
+
+@media (min-width: 48em) {
+        .main-content {
+                grid-template-columns: 1fr 1fr;
+                
+        }
+
+        .daniel-clifford-card,
+        .patrick-abrams-card,
+        .kira-whittle-card {
+                grid-column: span 2;
+        }
+
+}
+
+@media (min-width: 63em) {
+        .main-content {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(2, auto);
+                max-width: 80em;
+        }
+
+        .daniel-clifford-card {
+                grid-column: span 2;
+        }
+
+        .jonathan-walters-card  {
+                grid-column: 3 / 4;
+                grid-row: 1 / 2;
+        }
+
+        .jeanette-harmon-card {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+        }
+
+         .patrick-abrams-card {
+                grid-column: 2 / 4;
+                grid-row: 2 / 3;
+         }
+
+        .kira-whittle-card {
+                grid-column: 4 / 5;
+                grid-row: 1 / 3;
+        }
+}

@@ -45,6 +45,7 @@ body {
 .testimonial-bold {
         font-size: 1.25rem;
         font-weight: var(--barlow600);
+        z-index: 2;
 }
 
 .testimonial-light {
@@ -119,6 +120,7 @@ body {
         margin: 0;
         display: grid;
         align-content: start;
+        position: relative;
 }
 
 .blockquote-footer {
@@ -157,6 +159,9 @@ body {
         border: 2px solid var(--purple300);
 }
 
+.background-quote {
+        display: none;
+}
 /*    ================
                 MEDIA QUERY
         ================ */
@@ -171,6 +176,14 @@ body {
         .patrick-abrams-card,
         .kira-whittle-card {
                 grid-column: span 2;
+        }
+
+        .background-quote {
+                display: inherit;
+                justify-content: end;
+                position: absolute;
+                right: 5em;
+                z-index: 1;
         }
 
 }
